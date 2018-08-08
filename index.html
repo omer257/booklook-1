@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BookLook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- External styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="node_modules/@fortawesome/fontawesome-free/css/all.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="page-header">
+                <h1>BookLook <i class="far fa-eye"></i></h1>
+            </div>
+            <div class="posts">
+            </div>
+            <form>
+                <h3>Serch by ISBN</h3>
+                <div class="form-group">
+                    <input type="text" id="post-name" class="form-control" placeholder="Post Text">
+                </div>
+                <button class="btn btn-primary add-post" type="button">Search</button>
+            </form>
+        </div>
+    </div>
+    <!-- External scripts -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+
+
+    <script id="store-template" type="text/x-handlebars-template">
+        {{#each posts}}
+        <div class="post" data-id={{id}}>{{text}}
+            <a href="#" class="remove">remove</a>
+            <a href="#" class="show-comments">comments</a>
+            <ul>
+                {{#each comments}}
+                <li class="comment" comment-id={{id}}>{{text}}
+                    <a href="#" class="remove-comment">remove</a>
+                </li>
+                <br>{{/each}}
+            </ul>
+            <div class="comments-container">
+                <input type="text" class="comment-name">
+                <button class="btn btn-primary add-comment">Post Comment</button></div>
+        </div>
+        {{/each}}
+
+    </script>
+    <!-- Scripts -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>
