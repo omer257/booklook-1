@@ -19,44 +19,51 @@
             <div class="page-header">
                 <h1>BookLook <i class="far fa-eye"></i></h1>
             </div>
-            <div class="posts">
+            <div class="books">
             </div>
-            <form>
+            <form class="form-isbn">
                 <h3>Serch by ISBN</h3>
                 <div class="form-group">
-                    <input type="text" id="post-name" class="form-control" placeholder="Post Text">
+                    <input type="text" id="book-isbn" class="form-control" placeholder="ISBN here">
                 </div>
-                <button class="btn btn-primary add-post" type="button">Search</button>
+                <button class="btn btn-primary search-btn" type="button">Search</button>
+            </form>
+
+            <form class="form-title">
+                <h3>Serch by Title</h3>
+                <div class="form-group">
+                    <input type="text" id="book-title" class="form-control" placeholder="Title here">
+                </div>
+                <button class="btn btn-primary search-btn" type="button">Search</button>
+            </form>
+            <form class="form-author">
+                <h3>Serch by Author</h3>
+                <div class="form-group">
+                    <input type="text" id="book-author" class="form-control" placeholder="Author here">
+                </div>
+                <button class="btn btn-primary search-btn" type="button">Search</button>
             </form>
         </div>
     </div>
-    <!-- External scripts -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+    </div>
 
-
-    <script id="store-template" type="text/x-handlebars-template">
-        {{#each posts}}
-        <div class="post" data-id={{id}}>{{text}}
-            <a href="#" class="remove">remove</a>
-            <a href="#" class="show-comments">comments</a>
-            <ul>
-                {{#each comments}}
-                <li class="comment" comment-id={{id}}>{{text}}
-                    <a href="#" class="remove-comment">remove</a>
-                </li>
-                <br>{{/each}}
-            </ul>
-            <div class="comments-container">
-                <input type="text" class="comment-name">
-                <button class="btn btn-primary add-comment">Post Comment</button></div>
-        </div>
-        {{/each}}
-
+    <script id="entry-template" type="text/x-handlebars-template">
+        <div class="book">
+            <h3>{{title}}</h3>
+            <p>{{description}}</p>
+            <h4>Written By:{{authors}}</h4>
+            <button class="img-btn" type="button" style="background-image: url({{image}})"></button>
+            <!-- <div class="img-btn" style="background-image: url({{image}})"> -->
+            <!-- </div> -->
     </script>
-    <!-- Scripts -->
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <!-- External scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js "></script>
+    <script src="node_modules/jquery/dist/jquery.min.js "></script>
+    <script src="node_modules/handlebars/dist/handlebars.min.js "></script>
+
+    <script src="script.js "></script>
 </body>
 
 </html>
